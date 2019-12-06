@@ -356,28 +356,32 @@ static PyMethodDef HyperLogLog_methods[] = {
      "Merge another HyperLogLog."
     },
     {"murmur2_hash", (PyCFunction)HyperLogLog_murmur2_hash, METH_VARARGS,
-     "Get a Murmur2 hash"
+     "Get a MurmurHash64A"
     },
     {"__reduce__", (PyCFunction)HyperLogLog_reduce, METH_NOARGS,
      "Serialization helper function for pickling."
     },
+
+    {"get_register", (PyCFunction)HyperLogLog_reg_register, METHVARGS,
+     "Get the value of a register."
+    }
     {"registers", (PyCFunction)HyperLogLog_registers, METH_NOARGS,
      "Get a copy of the registers as a bytearray."
     },
     {"seed", (PyCFunction)HyperLogLog_seed, METH_NOARGS,
-     "Get the seed used in the Murmur2 hash."
+     "Get the hash function seed."
     },
     {"set_registers", (PyCFunction)HyperLogLog_set_registers, METH_VARARGS,
      "Set the registers with a bytearray."
     },
     {"set_register", (PyCFunction)HyperLogLog_set_register, METH_VARARGS,
-     "Set the register at a zero-based index to the specified rank."
+     "Set a register."
     },
     {"__setstate__", (PyCFunction)HyperLogLog_set_state, METH_VARARGS,
     "De-serialization helper function for pickling."
     },
     {"size", (PyCFunction)HyperLogLog_size, METH_NOARGS,
-     "Returns the number of registers."
+     "Get the number of registers."
     },
     {NULL}  /* Sentinel */
 };
